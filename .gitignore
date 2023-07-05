@@ -1,0 +1,7 @@
+_templates/
+node_modules/
+.DS_Store
+_bs/
+.vscode/
+srv.json
+package-lock.json
