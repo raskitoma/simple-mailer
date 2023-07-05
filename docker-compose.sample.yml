@@ -13,6 +13,7 @@ services:
       TZ : America/New_York
       APP_PORT : 3001 # this must match the port above
       APP_DEBUG : 0 # This is the debug level for the app. 0 is no debug, 1 is debug.
+      MAIL_ORIGIN : *
       MAIL_TRANSPORTER : |
                             {
                               "host" : "localhost",

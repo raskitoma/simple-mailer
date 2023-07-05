@@ -28,6 +28,7 @@ A simple API to receive request to send mail using a SMTP server or oAUTH2 (Gmai
       TZ : America/New_York
       APP_PORT : 3001 #
       APP_DEBUG : 0 # This is the debug level for the app. 0 is no debug, 1 is debug.
+      MAIL_ORIGIN : *
       MAIL_TRANSPORTER : |
                             {
                               "host" : "localhost",

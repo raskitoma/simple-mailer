@@ -16,7 +16,7 @@ console.log('Loading environment variables...');
 dotenv.config();
 const port = process.env.APP_PORT || 3001;
 const appdebug = process.env.APP_DEBUG || '0'; // default to false
-const cors_origin = process.env.CORS_ORIGIN || '*';
+const mail_origin = process.env.MAIL_ORIGIN || '*';
 const mail_transporter_str = process.env.MAIL_TRANSPORTER || `{ "service": "gmail", "auth": { "user": "youremail@gmail.com", "pass": "yourpassword" } }`; 
 const mail_default_receiver = process.env.MAIL_DEFAULT_RECEIVER || 'myfriend@yahoo.com';
 const mail_sender = process.env.MAIL_SENDER || 'youremail@gmail.com';
@@ -56,7 +56,7 @@ function applogger(message, module='MSG', severity='info', extras='', request=nu
   
 // cors fix
 let allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', `${cors_origin}`);
+    res.header('Access-Control-Allow-Origin', `${mail_origin}`);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', '*');
     next();
@@ -94,7 +94,7 @@ app.get('/', (req, res) => {
 
 app.post('/contact', (req, res) => {
     // if the requests doesn't comes from the allowed origins, return error
-    if (cors_origin != '*' && cors_origin != req.headers.origin) {
+    if (mail_origin != '*' && mail_origin != req.headers.origin) {
         let error_msg = `Request from ${req.headers.origin} not allowed`;
         applogger('Request from not allowed origin', 'REQUEST', 'error', error_msg, req, res);
         // return error_msg to the client with status code 403
