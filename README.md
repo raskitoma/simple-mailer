@@ -40,4 +40,3 @@ A simple API to receive request to send mail using a SMTP server or oAUTH2 (Gmai
 ```
 
 - Run `docker compose up -d` to start the container application
-
