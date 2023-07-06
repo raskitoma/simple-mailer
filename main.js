@@ -67,6 +67,7 @@ console.log('Setting up...');
 app.use(allowCrossDomain);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 const is_debug = appdebug=='1' ? true : false;
 
 // Setting up mail transporter
@@ -89,7 +90,7 @@ const defaultMailOptions = {
 // Root route
 app.get('/', (req, res) => {
   applogger('Client Request', 'REQUEST', 'info', '', req, res);
-  res.send('RSKMailer - System Live & Listening');
+  res.render('index');
 });
 
 app.post('/contact', (req, res) => {

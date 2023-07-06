@@ -5,3 +5,5 @@ _bs/
 .vscode/
 srv.json
 package-lock.json
+template/template.html
+

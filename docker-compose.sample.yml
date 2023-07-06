@@ -13,16 +13,16 @@ services:
       TZ : America/New_York
       APP_PORT : 3001 # this must match the port above
       APP_DEBUG : 0 # This is the debug level for the app. 0 is no debug, 1 is debug.
-      MAIL_ORIGIN : *
+      MAIL_ORIGIN : "*"
       MAIL_TRANSPORTER : |
                             {
                               "host" : "localhost",
                               "port" : 25,
                               "secure" : false
                             }
-      MAIL_DEFAULT_RECEIVER : myfriend@mail.com
-      MAIL_SENDER : mymail@mail.com
-      MAIL_DEFAULT_SUBJECT : Hello from RSK Mailer
+      MAIL_DEFAULT_RECEIVER : "myfriend@mail.com"
+      MAIL_SENDER : "mymail@mail.com"
+      MAIL_DEFAULT_SUBJECT : "Hello from RSK Mailer"
     restart: always
     logging:
       driver: "json-file"
