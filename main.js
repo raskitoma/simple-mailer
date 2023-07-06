@@ -101,6 +101,17 @@ app.post('/contact', (req, res) => {
         res.send(error_msg).status(403);
     }
 
+    // Get the ip address of the client
+    let ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress || 'SCRIPT';
+    // Get the ip address of the server
+    let server_ip = req.socket.localAddress || 'SCRIPT';
+
+    // put both values into a variable
+    let extras = `Client IP: ${ip} | Server IP: ${server_ip}`;
+
+    // log extras
+    applogger('Contact Request', 'CONTACT', 'info', extras, req, res);
+
     applogger('Contact Request', 'CONTACT', 'info', '', req, res);
     let mailname = req.body.name || '';
     let mailfrom = req.body.email || mail_sender;
